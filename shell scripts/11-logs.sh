@@ -28,7 +28,7 @@ else
     exit 1
 fi
 
-yum install mysql -y &>> $LOG_FILE
+yum install myssql -y &>> $LOG_FILE
 VALIDATE $? "Installing MySQL" #($2) # We are giving the arguments to VALIDATE function
 # In the Validate function 
     # --- $1 is $?
