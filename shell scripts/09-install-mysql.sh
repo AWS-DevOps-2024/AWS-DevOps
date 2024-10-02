@@ -11,7 +11,7 @@ else
     exit 1
 fi
 
-yum insstall mysql -y
+yum install mysql -y
 
 if [ $? -ne "0" ] # $? --> is the result of the previous command, If it is success then it will be 0 or failed then it is othan than 0 (ex: any nimber 1,34, 56 etc)
 then    
