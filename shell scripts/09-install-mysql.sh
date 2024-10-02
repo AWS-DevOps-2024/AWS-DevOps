@@ -9,3 +9,5 @@ then
 else
     echo "You do not have root permissions to execute this"
 fi
+
+yum install mysql -y
