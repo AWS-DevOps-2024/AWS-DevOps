@@ -3,7 +3,7 @@
 #Check if Users has Root access or not
 ID=$(id -u)
 
-if [ $ID = "0" ]
+if [ $ID = 0 ]
 then
     echo "You are a root user, PROCEED"
     #exit 1
