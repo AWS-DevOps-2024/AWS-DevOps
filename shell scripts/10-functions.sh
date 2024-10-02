@@ -3,12 +3,12 @@
 ID=$(id -u)
 
 VALIDATE(){
-    if [ $? -ne "0" ] # $? --> is the result of the previous command, If it is success then it will be 0 or failed then it is othan than 0 (ex: any nimber 1,34, 56 etc)
+    if [ $1 -ne "0" ] # $? --> is the result of the previous command, If it is success then it will be 0 or failed then it is othan than 0 (ex: any nimber 1,34, 56 etc)
     then    
-        echo "ERROR:: Installation FAILED"
+        echo "ERROR:: $2 FAILED"
         exit 1
     else
-        echo "Installation is SUCESS"
+        echo "$2 is SUCESS"
     fi
 }
 
@@ -22,7 +22,10 @@ else
 fi
 
 yum install mysql -y
-VALIDATE
+VALIDATE $? "Installing MySQL" #($2) # We are giving the arguments to VALIDATE function
+# In the Validate function 
+    # --- $1 is $?
+    # --- $2 is "Installing MySQL or GIT"
 
 yum install git -y
-VALIDATE
+VALIDATE $? "Installing GIT"
