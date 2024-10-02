@@ -12,10 +12,10 @@ N="\e[0m"
 VALIDATE(){
     if [ $1 -ne "0" ] # $? --> is the result of the previous command, If it is success then it will be 0 or failed then it is othan than 0 (ex: any nimber 1,34, 56 etc)
     then    
-        echo -e "ERROR:: $2... $R FAILED"
+        echo -e "ERROR:: $2... $R FAILED $N"
         exit 1
     else
-        echo "$2 is... $G SUCCESS"
+        echo -e "$2 is... $G SUCCESS $N"
     fi
 }
 
