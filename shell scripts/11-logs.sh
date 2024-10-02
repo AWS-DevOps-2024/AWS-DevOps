@@ -1,9 +1,12 @@
 #!/bin/bash
 
 ID=$(id -u)
-echo "Script name :: $0" # $0 --> it denotes the script name by default
+#echo "Script name :: $0" # $0 --> it denotes the script name by default
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOG_FILE="/tmp/$0-$TIMESTAMP.log"
+
+echo "Script started executing at $TIMESTAMP"
+
 R="\e[31m" #Red Colour
 G="\e[32m" #Green Colour
 Y="\e[33m" #Yellow Colour
@@ -28,7 +31,7 @@ else
     exit 1
 fi
 
-yum install myssql -y &>> $LOG_FILE
+yum install mysql -y &>> $LOG_FILE
 VALIDATE $? "Installing MySQL" #($2) # We are giving the arguments to VALIDATE function
 # In the Validate function 
     # --- $1 is $?
