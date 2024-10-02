@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FRUIT=("Mango" "Banana" "Apple" "Pomogranate")
+FRUIT=("Mango" "Banana" "Apple" "Pomogranate") # This is Array
 # In Arrays numbers will start from 0 hence ${FRUIT[0]} will be Mango (first one in the array)
 
 echo "First fruit is :: ${FRUIT[0]}"
