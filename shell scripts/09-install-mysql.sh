@@ -9,6 +9,7 @@ then
     #exit 1
 else
     echo "You do not have root permissions to execute this"
+    exit 1
 fi
 
 yum install mysql -y
