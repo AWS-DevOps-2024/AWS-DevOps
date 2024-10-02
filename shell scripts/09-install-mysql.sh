@@ -13,9 +13,10 @@ fi
 
 yum insstall mysql -y
 
-if [ $? = "0" ] # $? --> is the result of the previous command, If it is success then it will be 0 or failed then it is othan than 0 (ex: any nimber 1,34, 56 etc)
+if [ $? -ne "0" ] # $? --> is the result of the previous command, If it is success then it will be 0 or failed then it is othan than 0 (ex: any nimber 1,34, 56 etc)
 then    
-    echo "Installation is SUCCESS"
-else
     echo "Installation FAILED"
+    exit 1
+else
+    echo "Installation is SUCESS"
 fi
