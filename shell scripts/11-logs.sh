@@ -5,7 +5,7 @@ ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 LOG_FILE="/tmp/$0-$TIMESTAMP.log"
 
-echo "Script started executing at $TIMESTAMP"
+echo "Script started executing at $TIMESTAMP" >>$LOG_FILE
 
 R="\e[31m" #Red Colour
 G="\e[32m" #Green Colour
