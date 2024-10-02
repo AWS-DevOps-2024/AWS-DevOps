@@ -11,7 +11,7 @@ else
     exit 1
 fi
 
-yum install mysql -y
+yum insstall mysql -y
 
 if [ $? = 0 ]
 then    
