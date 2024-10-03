@@ -6,6 +6,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+ID=$(id -u)
 LOG_FILE="/tmp/$0-$(date +%F--%T).log"
 
 VALIDATE() {
@@ -20,7 +21,7 @@ VALIDATE() {
     
 #Check if you are a root user or not
 
-if [ $(whoami) -ne "root" ]
+if [ $ID -ne "0" ]
 then    
     echo -e "$R ERROR$N:: You are not a Root User, Please run this with root access."
     exit 1
