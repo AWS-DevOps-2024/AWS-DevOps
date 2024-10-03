@@ -55,7 +55,7 @@ VALIDATE $? "Unzipping Catalogue Application"
 npm install $LOG_FILE
 VALIDATE $? "Installing NodeJS Dependencies"
 
-cp /home/centos/AWS_DevOps/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service $LOG_FILE
+cp /home/centos/AWS-DevOps/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service $LOG_FILE
 VALIDATE $? "Copying Catalogue.service"
 
 systemctl daemon-reload  $LOG_FILE
