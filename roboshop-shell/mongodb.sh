@@ -40,7 +40,7 @@ VALIDATE $? "Enabling MongoDB"
 systemctl start mongod &>> $LOG_FILE
 VALIDATE $? "Starting MongoDB"
  
-sed -i 127.0.0.1/0.0.0.0 /etc/mongod.conf &>> $LOG_FILE
+sed -i 127.0.0.1/0.0.0.0/g /etc/mongod.conf &>> $LOG_FILE
 VALIDATE $? "Allowing Public to Access"
 
 systemctl restart mongod &>> $LOG_FILE
