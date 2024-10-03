@@ -28,25 +28,25 @@ then
 else
     echo -e "You are a Root User...$G PROCEED$N"
 fi
-dnf module disable nodejs -y &>> &>> $LOG_FILE
+dnf module disable nodejs -y &>> $LOG_FILE
 VALIDATE $? "Disabling NodeJs 10"
 
-dnf module enable nodejs:18 -y &>> &>> $LOG_FILE
+dnf module enable nodejs:18 -y &>> $LOG_FILE
 VALIDATE $? "Enabling NodeJs 18"
 
-dnf install nodejs -y &>> &>> $LOG_FILE
+dnf install nodejs -y &>> $LOG_FILE
 VALIDATE $? "Installing NodeJs"
 
-useradd roboshop &>> &>> $LOG_FILE
+useradd roboshop &>> $LOG_FILE
 VALIDATE $? "Adding Roboshop User"
 
-mkdir -p /app &>> &>> $LOG_FILE
+mkdir -p /app &>> $LOG_FILE
 VALIDATE $? "Create App Directory"
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> &>> $LOG_FILE
+curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip &>> $LOG_FILE
 VALIDATE $? "Download Catalogue Application"
 
-cd /app &>> &>> $LOG_FILE
+cd /app &>> $LOG_FILE
 VALIDATE $? "Go to App Directory"
 
 unzip /tmp/catalogue.zip &>> $LOG_FILE
