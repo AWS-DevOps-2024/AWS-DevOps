@@ -11,9 +11,9 @@ LOG_FILE="/tmp/$0-$(date +%F--%T).log"
 VALIDATE() {
     if [ $1 -ne "0" ]
     then    
-        echo "$2 is...$R FAILED$N"
+        echo -e "$2 is...$R FAILED$N"
     else
-        echo "$2 is...$G SUCCESS$N"
+        echo -e "$2 is...$G SUCCESS$N"
     fi
 }    
     
