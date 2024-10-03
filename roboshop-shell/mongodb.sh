@@ -6,6 +6,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+LOG_FILE="/tmp/$0-$(date +%F--%T).log"
+
 VALIDATE() {
     if [ $1 -ne "0" ]
     then    
@@ -24,6 +26,6 @@ else
     echo -e "You are a Root User...$G PROCEED$N"
 fi
 
-yum install git -y
+yum install git -y &>> $LOG_FILE
 
 VALIDATE $1 "Installing GIT"
