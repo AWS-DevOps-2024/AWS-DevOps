@@ -28,7 +28,20 @@ then
 else
     echo -e "You are a Root User...$G PROCEED$N"
 fi
+cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOG_FILE
+VALIDATE $? "Copying Mongo Repo"
 
-yum install git -y &>> $LOG_FILE
+dnf install mongodb-org -y  &>> $LOG_FILE
+VALIDATE $? "Installing MongoDB"
 
-VALIDATE $? "Installing GIT"
+systemctl enable mongod &>> $LOG_FILE
+VALIDATE $? "Enabling MongoDB"
+
+systemctl start mongod &>> $LOG_FILE
+VALIDATE $? "Starting MongoDB"
+ 
+sed -i 127.0.0.1/0.0.0.0 /etc/mongod.conf &>> $LOG_FILE
+VALIDATE $? "Allowing Public to Access"
+
+systemctl restart mongod &>> $LOG_FILE
+VALIDATE $? "Restarting MongoDB"
