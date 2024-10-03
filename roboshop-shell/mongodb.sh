@@ -28,4 +28,4 @@ fi
 
 yum install git -y &>> $LOG_FILE
 
-VALIDATE $1 "Installing GIT"
+VALIDATE $? "Installing GIT"
