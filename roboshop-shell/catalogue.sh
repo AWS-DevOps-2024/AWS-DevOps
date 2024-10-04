@@ -74,7 +74,7 @@ VALIDATE $? "Ebnable Catalogue"
 systemctl start catalogue &>> $LOG_FILE
 VALIDATE $? "Start Catalogue"
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOG_FILE
+cp /home/centos/AWS-DevOps/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOG_FILE
 VALIDATE $? "Copying Mongo Repo"
 
 dnf install mongodb-org-shell -y &>> $LOG_FILE
