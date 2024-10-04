@@ -46,7 +46,7 @@ VALIDATE $? "Downloading web.zip"
 cd /usr/share/nginx/html &>> $LOG_FILE
 VALIDATE $? "Go to nginx html directory"
 
-unzip -0 /tmp/web.zip &>> $LOG_FILE
+unzip -o /tmp/web.zip &>> $LOG_FILE
 VALIDATE $? "Unzipping web.zip"
 
 cp /home/centos/AWS-DevOps/roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $LOG_FILE
