@@ -49,7 +49,7 @@ VALIDATE $? "Go to nginx html directory"
 unzip -o /tmp/web.zip &>> $LOG_FILE
 VALIDATE $? "Unzipping web.zip"
 
-cp /home/centos/AWS-DevOps/roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $LOG_FILE
+cp /home/centos/AWS-DevOps/roboshop-shell/roboshop.conf /etc/nginx/default.d/roboshop.conf &>> $LOG_FILE
 VALIDATE $? "Creating Reverse Proxy"
 
 systemctl restart nginx &>> $LOG_FILE
