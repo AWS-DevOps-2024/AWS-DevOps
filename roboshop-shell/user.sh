@@ -31,10 +31,10 @@ fi
 dnf module disable nodejs -y &>> $LOG_FILE
 VALIDATE $? "Disabling NodeJS 10"
 
-dnf module enable nodejs:18 -y 
+dnf module enable nodejs:18 -y &>> $LOG_FILE
 VALIDATE $? "Enabling NodeJS 18"
 
-dnf install nodejs -y 
+dnf install nodejs -y &>> $LOG_FILE
 VALIDATE $? "Installing NodeJS"
 
 id roboshop
@@ -54,7 +54,7 @@ VALIDATE $? "Downloading User.zip"
 
 cd /app 
 
-unzip -0 /tmp/user.zip &>> $LOG_FILE
+unzip -o /tmp/user.zip &>> $LOG_FILE
 VALIDATE $? "Unzipping User.zip"
 
 npm install &>> $LOG_FILE
