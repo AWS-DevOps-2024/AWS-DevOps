@@ -40,7 +40,7 @@ VALIDATE $? "Installing NodeJs"
 id roboshop
 if [ $? -ne "0" ]
 then 
-    ueradd roboshop &>> $LOG_FILE
+    useradd roboshop &>> $LOG_FILE
     VALIDATE $? "Creating Roboshop User"
 else 
     echo -e "Roboshop User already Exist...$Y SKIPPING$N"
