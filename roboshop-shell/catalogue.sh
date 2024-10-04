@@ -28,6 +28,7 @@ then
 else
     echo -e "You are a Root User...$G PROCEED$N"
 fi
+
 dnf module disable nodejs -y &>> $LOG_FILE
 VALIDATE $? "Disabling NodeJs 10"
 
