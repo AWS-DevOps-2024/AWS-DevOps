@@ -40,12 +40,12 @@ VALIDATE $? "Installing NodeJs"
 id roboshop
 if [ $? -ne "0" ]
 then 
-    echo -e "User already Exist...$Y SKIPPING$N"
-else 
     ueradd roboshop &>> $LOG_FILE
-fi
+    VALIDATE $? "Creating Roboshop User"
+else 
+    echo -e "Roboshop User already Exist...$Y SKIPPING$N"
+fi 
 
-VALIDATE $? "Adding Roboshop User"
 
 mkdir -p /app &>> $LOG_FILE
 VALIDATE $? "Create App Directory"
@@ -56,7 +56,7 @@ VALIDATE $? "Download Catalogue Application"
 cd /app &>> $LOG_FILE
 VALIDATE $? "Go to App Directory"
 
-unzip /tmp/catalogue.zip &>> $LOG_FILE
+unzip -o /tmp/catalogue.zip &>> $LOG_FILE
 VALIDATE $? "Unzipping Catalogue Application"
 
 npm install &>> $LOG_FILE
