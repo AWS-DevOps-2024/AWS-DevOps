@@ -5,11 +5,12 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-SOURCE_DIR="/tmp/shell-logs"
+# SOURCE_DIR="/tmp/shell-logs"
+SOURCE_DIR=$1
 
-if [ ! -d $SOURCE_DIR ]
+if [ ! -d $1 ]
 then
-    echo -e "Source Directory $R $SOURCE_DIR $N does not Exist"
+    echo -e "Source Directory $R $1 $N does not Exist"
 fi
 
 # #Find files to delete
