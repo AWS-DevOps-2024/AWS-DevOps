@@ -32,7 +32,7 @@ fi
 dnf module disable mysql -y &>> $LOG_FILE
 VALIDATE $? "Diabling MySQL"
 
-cp /home/centos/AWS-DevOps/mysql.repo /etc/yum.repos.d/mysql.repo &>> $LOG_FILE
+cp /home/centos/AWS-DevOps/roboshop-shell/mysql.repo /etc/yum.repos.d/mysql.repo &>> $LOG_FILE
 VALIDATE $? "Copying MySQL Repo"
 
 dnf install mysql-community-server -y &>> $LOG_FILE
