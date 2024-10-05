@@ -11,6 +11,8 @@ SOURCE_DIR=$1
 if [ ! -d $1 ]
 then
     echo -e "Source Directory $R $1 $N does not Exist"
+else
+    echo -e "Source Directory $G $1 $N Exists"
 fi
 
 # #Find files to delete
