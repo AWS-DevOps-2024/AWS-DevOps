@@ -16,7 +16,7 @@ else
 fi
 
 #Find files to delete
-FILES_TO_DELETE=$(find $SOURCE_DIR -type f -mtime +14 -name "*.log")
+FILES_TO_DELETE=$(find $1 -type f -mtime +14 -name "*.log")
 
 while IFS= read -r line
 do 
