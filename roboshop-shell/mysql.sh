@@ -8,7 +8,6 @@ N="\e[0m"
 
 ID=$(id -u)
 LOG_FILE="/tmp/$0-$(date +%F--%T).log"
-exec &>$LOG_FILE
 
 VALIDATE() {
     if [ $1 -ne "0" ]
@@ -30,20 +29,21 @@ else
     echo -e "You are a Root User...$G PROCEED$N"
 fi
 
-dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
-VALIDATE $? "Installing Remi release"
+dnf module disable mysql -y &>> $LOG_FILE
+VALIDATE $? "Diabling MySQL"
 
-dnf module enable redis:remi-6.2 -y
-VALIDATE $? "Enabling redis"
+cp /home/centos/AWS-DevOps/mysql.repo /etc/yum.repos.d/mysql.repo &>> $LOG_FILE
+VALIDATE $? "Copying MySQL Repo"
 
-dnf install redis -y
-VALIDATE $? "Installing Redis"
+dnf install mysql-community-server -y &>> $LOG_FILE
+VALIDATE $? "Installing MySQL"
 
-sed -i 's/127.0.0.1/0.0.0.0/g' /etc/redis/redis.conf
-VALIDATE $? "Allowing remote Connections"
+systemctl enable mysqld &>> $LOG_FILE
+VALIDATE $? "Enabling MySQL"
 
-systemctl enable redis
-VALIDATE $? "Daemon-reload"
+systemctl start mysqld &>> $LOG_FILE
+VALIDATE $? "Starting MySQL"
 
-systemctl start redis
-VALIDATE $? "Starting Redis"
+mysql_secure_installation --set-root-pass RoboShop@1 &>> $LOG_FILE
+VALIDATE $? "Setting the MySQL root Password"
+
