@@ -7,7 +7,7 @@ N="\e[om"
 
 SOURCE_DIR="/tmp/shell-logs"
 
-if [ ! $SOURCE_DIR ]
+if [ ! -d $SOURCE_DIR ]
 then
     echo -e "Source Directory $R $SOURCE_DIR $N does not Exist"
 fi
