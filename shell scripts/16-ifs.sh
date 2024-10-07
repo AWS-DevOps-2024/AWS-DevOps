@@ -1,6 +1,6 @@
 #!/bin/bash
 
-file="/etc/passwd"
+file=/etc/passwd
 
 while IFS=":" read -r username password user_id group_id user_fullname home_dir shell_path
 do
