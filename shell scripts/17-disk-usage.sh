@@ -14,7 +14,7 @@ do
 
     if [ $usage -gt $DISK_THRESHOLD ]
     then
-        message+="High Disk Usage on $partition::$usage\n"
+        message+="High Disk Usage on $partition::$usage%\<br>"
     fi
 done <<< $DISK_USAGE
 
@@ -22,4 +22,4 @@ echo -e "$message"
 
 # echo "$message" | mail -s "High Disk Usage" cloudtechprem@gmail.com
 
-sh mail.sh "DevOps Team" "High Disk Usage" "$message" "cloudtechprem@gmail.com" "ALERT HIGH DISK USAGE"
+sh mail.sh "DevOps Team" "High Disk Usage" "$message" "cloudtechprem@gmail.com" "ALERT High Disk Usage"
