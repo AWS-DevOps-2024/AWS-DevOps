@@ -7,6 +7,6 @@ FILE_TO_READ=$(cat sample.txt)
 
 while IFS= read -r line
 do
-    echo "Deleting the line:: $R $line $N"
+    echo -e "Deleting the line:: $R $line $N"
 
 done <<< $FILE_TO_READ
