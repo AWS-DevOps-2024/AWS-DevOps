@@ -9,8 +9,8 @@ message=""
 
 while IFS= read -r line
 do
-    usage=$(echo df -hT | grep xvd | awk '{print $6F}')
-    partition=$(echo df -hT | grep xvd | awk '{print $1F}')
+    usage=$(echo $line | awk '{print $6F}')
+    partition=$(echo $line | awk '{print $1F}')
 
     if [ $usage -ge $DISK_THRESHOLD ]
     then
