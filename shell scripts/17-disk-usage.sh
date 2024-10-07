@@ -5,7 +5,7 @@ N="\e[0m"
 
 DISK_USAGE=$(df -hT | grep xvd)
 DISK_THRESHOLD=1
-message=""
+# message=""
 
 while IFS= read line
 do
