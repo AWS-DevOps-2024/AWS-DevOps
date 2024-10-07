@@ -3,7 +3,7 @@
 R="\e[31m"
 N="\e[0m"
 
-DISK_USAGE=$(df -hT | grep xvd | awk '{print $6F}')
+DISK_USAGE=$(df -hT | grep xvd)
 DISK_THRESHOLD=1
 message=""
 
@@ -18,4 +18,4 @@ do
     fi
 done <<< $DISK_USAGE
 
-    echo "Message:: $message"
+echo "Message:: $message"
