@@ -10,6 +10,10 @@ MESSAGE=""
 while IFS= read -r line
 do
     usage=$(echo df -hT | grep xvd | awk '{print $6F}')
+    partition=$(echo df -hT | grep xvd | awk '{print $1F}')
+    echo "$usage"
+    # if [ $usage -gt $DISK_THRESHOLD ]
+    # then
+    #     message+="High Disk Usage on $partition::$usage"
 done <<< $DISK_USAGE
 
-echo "$usage"
