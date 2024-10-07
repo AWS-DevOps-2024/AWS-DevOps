@@ -31,3 +31,4 @@ do
     echo "Deleting File:: $line"
     rm -rf $line
 done <<< $FILES_TO_DELETE
+    
