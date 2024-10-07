@@ -7,4 +7,5 @@ do
     echo "Username:: $username"
     echo "User Full Name:: $user_fullname"
     echo "User ID:: $user_id"
+    echo "Home Directory:: $home_dir"
 done < $file
