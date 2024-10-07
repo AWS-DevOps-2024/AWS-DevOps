@@ -19,3 +19,5 @@ do
 done <<< $DISK_USAGE
 
 echo -e "$message"
+
+echo "This is a test mail & Date $$message" | mail -s "High Disk Usage" cloudtechprem@gmail.com
