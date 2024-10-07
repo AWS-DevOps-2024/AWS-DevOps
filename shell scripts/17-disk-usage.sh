@@ -7,3 +7,4 @@ DISK_USAGE=$(df -hT | grep xvd)
 DISK_THRESHOLD=1
 MESSAGE=""
 
+echo "$DISK_USAGE"
