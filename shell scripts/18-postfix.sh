@@ -32,21 +32,21 @@ fi
 yum -y install postfix cyrus-sasl-plain mailx &>> $LOG_FILE
 VALIDATE $? "Installing PostFix"
 
-systemctl restart postfix 
+systemctl restart postfix &>> $LOG_FILE
 VALIDATE $? "Restarting PostFix"
 
-systemctl enable postfix 
+systemctl enable postfix &>> $LOG_FILE
 VALIDATE $? "Enabling PostFix"
 
-cp -o /home/centos/AWS-DevOps/shell scripts/postfix-main.cf /etc/postfix/main.cf 
+cp -o /home/centos/AWS-DevOps/shell scripts/postfix-main.cf /etc/postfix/main.cf &>> $LOG_FILE
 VALIDATE $? "Copying main.cf file"
 
-cp -o /home/centos/AWS-DevOps/shell scripts/sasl_passwd /etc/postfix/sasl_passwd  
+cp -o /home/centos/AWS-DevOps/shell scripts/sasl_passwd /etc/postfix/sasl_passwd &>> $LOG_FILE
 VALIDATE $? "Copying sasl_passwd file"
 
-postmap /etc/postfix/sasl_passwd 
+postmap /etc/postfix/sasl_passwd &>> $LOG_FILE
 VALIDATE $? "mapping the password file"
 
-echo "This is a test mail & Date $(date)" | mail -s "Test Email" cloudtechprem@gmail.com
+echo "This is a test mail & Date $(date)" | mail -s "Test Email" cloudtechprem@gmail.com &>> $LOG_FILE
 VALIDATE $? "Sending test Email"
 
