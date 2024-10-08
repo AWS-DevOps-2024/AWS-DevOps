@@ -23,3 +23,12 @@ echo -e "$message"
 # echo "$message" | mail -s "High Disk Usage" cloudtechprem@gmail.com
 
 sh mail.sh "DevOps Team" "High Disk Usage" "$message" "cloudtechprem@gmail.com" "ALERT High Disk Usage"
+
+while IFS= read -r line
+do
+    usage=$(echo $line | awk '{print $6F}' | cut -d % -f1)
+    partition=$(echo $line | awk '{print $1F}')
+    message+="High Disk Usage on $partition:: $usage\n"
+done <<< $DISK_USAGE
+
+echo -e "$message"
