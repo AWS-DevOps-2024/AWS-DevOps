@@ -38,10 +38,10 @@ VALIDATE $? "Restarting PostFix"
 systemctl enable postfix &>> $LOG_FILE
 VALIDATE $? "Enabling PostFix"
 
-cp -o /home/centos/AWS-DevOps/shell scripts/postfix-main.cf /etc/postfix/main.cf &>> $LOG_FILE
+cp /home/centos/AWS-DevOps/shell scripts/postfix-main.cf /etc/postfix/main.cf &>> $LOG_FILE
 VALIDATE $? "Copying main.cf file"
 
-cp -o /home/centos/AWS-DevOps/shell scripts/sasl_passwd /etc/postfix/sasl_passwd &>> $LOG_FILE
+cp /home/centos/AWS-DevOps/shell scripts/sasl_passwd /etc/postfix/sasl_passwd &>> $LOG_FILE
 VALIDATE $? "Copying sasl_passwd file"
 
 postmap /etc/postfix/sasl_passwd &>> $LOG_FILE
