@@ -41,8 +41,8 @@ VALIDATE $? "Enabling PostFix"
 rm -rf /etc/postfix/main.cf &>> $LOG_FILE
 VALIDATE $? "Remove main.cf file"
 
-cp /home/centos/AWS-DevOps/shell scripts/postfix-main.cf /etc/postfix/main.cf &>> $LOG_FILE
-VALIDATE $? "Moving main.cf file"
+cp /home/centos/AWS-DevOps/shell scripts/main.cf /etc/postfix/ &>> $LOG_FILE
+VALIDATE $? "Copying main.cf file"
 
 cp /home/centos/AWS-DevOps/shell scripts/sasl_passwd /etc/postfix/sasl_passwd &>> $LOG_FILE
 VALIDATE $? "Copying sasl_passwd file"
