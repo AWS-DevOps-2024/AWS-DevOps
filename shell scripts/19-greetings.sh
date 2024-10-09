@@ -6,9 +6,9 @@ WISHES=""
 USAGE(){
     echo "USAGE:: $(basename $0) -n <name> -w <wishes>"
     echo "Options"
-    echo " -n, Specify the name"
-    echo " -w, Specify the wishes"
-    echo " -h, Display the help and exit"
+    echo " -n, --Specify the name"
+    echo " -w, --Specify the wishes"
+    echo " -h, --Display the help and exit"
 }
 
 while getopts ":n:w:h" opt; do 
@@ -21,4 +21,11 @@ while getopts ":n:w:h" opt; do
     esac
 done
 
-# echo "Hello $NAME, $WISHES" 
+if [ -z $NAME ] || [ -z $WISHES ]
+then
+    echo "ERROR:: Both -n and -w options are mandatory"
+    USAGE
+    exit 1
+fi
+
+echo "Hello $NAME, $WISHES. I am learning GetOpts in Shell Script."
