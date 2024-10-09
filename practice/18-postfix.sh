@@ -44,10 +44,10 @@ VALIDATE $? "Remove main.cf file"
 # cd  cd /home/centos/AWS-DevOps/shell\ scripts/ &>> $LOG_FILE
 # VALIDATE $? "Go to shell script directory"
 
-cp /home/centos/AWS-DevOps/shell\ scripts//main.cf /etc/postfix/ &>> $LOG_FILE
+cp /home/centos/AWS-DevOps/practice/main.cf /etc/postfix/ &>> $LOG_FILE
 VALIDATE $? "Copying main.cf file"
 
-cp /home/centos/AWS-DevOps/shell\ scripts//sasl_passwd /etc/postfix/sasl_passwd &>> $LOG_FILE
+cp /home/centos/AWS-DevOps/practice/sasl_passwd /etc/postfix/sasl_passwd &>> $LOG_FILE
 VALIDATE $? "Copying sasl_passwd file"
 
 postmap /etc/postfix/sasl_passwd &>> $LOG_FILE
