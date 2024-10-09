@@ -17,4 +17,4 @@ echo -e "$message"
 
 # sh mail.sh "DevOps Team" "High Disk Usage Alert" "$message" "cloudtechprem@gmail.com" "ALERT: High Disk Usage"
 
-sh mail.sh "DevOps Team" "High Disk Usage Alert" "There is No High Disk Usage" "cloudtechprem@gmail.com" "ALERT: High Disk Usage"
+sh mail.sh "DevOps Team" "NOTHING Alert" "Just a Nothing Alert" "cloudtechprem@gmail.com" "ALERT: NOTHING Alert"
