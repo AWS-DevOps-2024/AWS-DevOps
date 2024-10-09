@@ -21,4 +21,4 @@ while getopts ":n:w:h" opt; do
     esac
 done
 
-echo "Hello $NAME, $WISHES" 
+# echo "Hello $NAME, $WISHES" 
