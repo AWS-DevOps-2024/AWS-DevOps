@@ -16,9 +16,9 @@ while getopts ":n:w:h" opt; do
     case $opt in 
         n) NAME="$OPTARG";;
         w) WISHES="$OPTARG";;
-        :) echo "Option requires an argument: -"$OPTARG"" >&2; #empty Options
         \?) echo "Invalid Options: -"$OPTARG"" >&2; USAGE; exit;; #Inavlid Options
-        h) USAGE; exit;;   
+        h) USAGE; exit;; 
+        :) USAGE; exit;; #empty Options
     esac
 done
 
