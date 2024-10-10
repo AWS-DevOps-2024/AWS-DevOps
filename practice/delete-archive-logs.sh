@@ -57,7 +57,7 @@ if [ ! -d "$source_dir" ]
         echo "Source directory exist"
     fi
 
-if [ -z $source_dir ] | [ -z $action ]
+if [ -z $source_dir ] && [ -z $action ]
 then
     echo "ERROR: Both -d and -a options are mandatory" ; USAGE ; exit 1;
     
