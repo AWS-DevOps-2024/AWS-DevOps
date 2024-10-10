@@ -78,11 +78,29 @@ then
 fi 
 
 #################################
+## If User selects delete
 
 if [ "$action" == "delete" ]
 then
-    echo "Deleting logs:: $(rm -rf find $source_dir -type f -name "*.log")
+    FILES_TO_DELETE=$(find $source_dir -type f -name "*.log")
 fi
+while IFS= read -r line
+do
+    echo "Deleting File:: $line"
+    rm -rf $line
+done <<< $FILES_TO_DELETE
 
-    
+## If User selected Archive
 
+if [ "$action" == "archive" ]
+then
+    FILES_TO_ARCHIVE=$(find $source_dir -type f -name "*.log")
+fi
+while IFS= read -r line
+do
+    echo "Archiving the following Files:: $line"
+    tar -caf $(basename $$line).tar.gz $destination_dir/
+done <<< $FILES_TO_ARCHIVE
+
+#  zip -r "$DESTINATION_DIR/$(basename "$line").zip"
+#     rm -rf $line
