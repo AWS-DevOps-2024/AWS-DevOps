@@ -57,16 +57,16 @@ if [ ! -d "$source_dir" ]
         echo "Source directory exist"
     fi
 
-if [ -z $source_dir ] && [ -z $action ]
-then
-    echo "ERROR: Both -d and -a options are mandatory" ; USAGE ; exit 1;
+# if [ -z $source_dir ] && [ -z $action ]
+# then
+#     echo "ERROR: Both -d and -a options are mandatory" ; USAGE ; exit 1;
     
-fi
+# fi
 
-# if [ $2 == "archive" ] || [ -z $destination_dir ]
-#     then
-#         echo "If archive action is selected, -d destination directory is mandatory" ; USAGE ; exit 1;       
-#     fi
+if [ $action == "archive" ] || [ -z $destination_dir ]
+    then
+        echo "If archive action is selected, -d destination directory is mandatory" ; USAGE ; exit 1;       
+    fi
 
 # if [ $2 == "delete" ]
 # then
