@@ -54,8 +54,8 @@ if [ ! -d $1  ]
     then
         echo "Destination directory does not exist" ; USAGE ; exit 1;
     fi
-    
-if [ -z $destination_dir ] || [ -z $action ]
+
+if [ -z $1 ] || [ -z $2 ]
 then
     echo "ERROR: Both -d and -a options are mandatory" ; USAGE ; exit 1;
     
