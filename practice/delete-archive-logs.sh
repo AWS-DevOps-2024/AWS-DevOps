@@ -93,7 +93,7 @@ else
     while IFS= read -r line
     do
         echo "Archiving the following Files:: $line"
-        zip -r "$destination_dir/cat.zip" "$line" #$line is the files whci we are gping to archive
+        zip -r "$destination_dir/zip-files.zip" "$line" #$line is the files whci we are gping to archive
         # rm -rf $line
     done <<< $FILES_TO_ARCHIVE
 fi
