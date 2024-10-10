@@ -20,7 +20,7 @@
 # User has given all required input or not
 # Directories are exist or not
 
-source_dir="$1"
+source_dir=""
 action="$2"
 destination_dir=""
 time=""
@@ -50,7 +50,7 @@ while getopts ":s:a:d:t:m:h" opt; do
       esac
     done
 
-if [ ! -d $1  ]
+if [ ! -d $source_dir  ]
     then
         echo "Source directory does not exist" ; USAGE ; exit 1;
     fi
