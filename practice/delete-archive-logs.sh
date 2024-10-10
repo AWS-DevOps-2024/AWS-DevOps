@@ -88,11 +88,7 @@ then
         echo "Deleting File:: $line"
         rm -rf $line
     done <<< $FILES_TO_DELETE
-fi
-## If User selected Archive
-
-if [ "$action" == "archive" ]
-then
+else
     FILES_TO_ARCHIVE=$(find $source_dir -type f -name "*.log")
     while IFS= read -r line
     do
