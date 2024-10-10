@@ -50,26 +50,11 @@ while getopts ":s:a:d:t:m:h" opt; do
       esac
     done
 
-if [ ! -d "$source_dir" ]
-    then
-        echo "Source directory does not exist" ; USAGE ; exit 1;
-    else
-        echo "Source directory exist"
-        if [ $action == "archive" ] || [ -z $destination_dir ]
-            then
-                echo "If archive action is selected, -d destination directory is mandatory" ; USAGE ; exit 1;       
-        fi
-fi
+#Find if the source directory exist
 
-# if [ -z $source_dir ] && [ -z $action ]
-# then
-#     echo "ERROR: Both -d and -a options are mandatory" ; USAGE ; exit 1;
-    
-# fi
-
-if [ $action == "archive" ] || [ -z $destination_dir ]
-    then
-        echo "If archive action is selected, -d destination directory is mandatory" ; USAGE ; exit 1;       
+if [ ! -d $source_dir ]
+then
+    echo "Source directory does not exist"
 fi
 
 # if [ $2 == "delete" ]
