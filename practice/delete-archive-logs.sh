@@ -20,11 +20,11 @@
 # User has given all required input or not
 # Directories are exist or not
 
-source_dir="$1"
-action="$2"
-destination_dir="$3"
-time="$14"
-memory="$5"
+source_dir=""
+action=""
+destination_dir=""
+time="14"
+memory=""
 
 USAGE(){
     echo "USAGE:: $(basename $0) -s <source-directory> -a <action> -d <destination-directory> -t <retention-time> -m <memory> "
@@ -50,16 +50,34 @@ while getopts ":s:a:d:t:m:h" opt; do
       esac
     done
 
-#Find if the source directory exist
+#Find if the source directory exist or not
 
 if [ ! -d $source_dir ]
 then
-    echo "Source directory does not exist"
+    echo "Source directory $source_dir does not exist"
 fi
 
-# if [ $2 == "delete" ]
-# then
-#     echo "Deleting the logs:: $(rm -rf $source_dir | grep -name "*.log")" USAGE ; exit 1;
-# fi
+# find if action is provided or not
 
-# if [ -z $destination_dir ] || [ -z  ]
+if [ -z $action ]
+then
+    echo "-a is mandatory option"
+fi
+
+# FInd if user provided the destination or not when action = archive 
+
+if [ $action == "archive" ] && [ ! -d $destination_dir ]
+then
+    echo "ERROR: -d destination directory is mandatory when -a is archive" ; USAGE ; exit 1;;
+fi 
+
+#################################
+
+# if [ $action == "delete" ]
+# then
+#     echo "Deleting logs $(rm -rf $source_dir | grep "*.log" )"
+# else
+#     echo "Archiving logs $( )"
+
+    
+
