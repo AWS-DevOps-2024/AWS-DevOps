@@ -22,9 +22,9 @@
 
 source_dir="$1"
 action="$2"
-destination_dir=""
-time=""
-memory=""
+destination_dir="$3"
+time="$14"
+memory="$5"
 
 USAGE(){
     echo "USAGE:: $(basename $0) -s <source-directory> -a <action> -d <destination-directory> -t <retention-time> -m <memory> "
@@ -50,9 +50,11 @@ while getopts ":s:a:d:t:m:h" opt; do
       esac
     done
 
-if [ ! -d $1 ]
+if [ ! -d "$1" ]
     then
         echo "Source directory does not exist" ; USAGE ; exit 1;
+    else
+        echo "Source directory exist"
     fi
 
 # if [ -z $1 ] || [ -z $2 ]
