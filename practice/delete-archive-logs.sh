@@ -20,7 +20,7 @@
 # User has given all required input or not
 # Directories are exist or not
 
-source_dir=""
+source_dir="$1"
 action="$2"
 destination_dir=""
 time=""
@@ -50,25 +50,25 @@ while getopts ":s:a:d:t:m:h" opt; do
       esac
     done
 
-if [ ! -d $source_dir  ]
+if [ ! -d $1 ]
     then
         echo "Source directory does not exist" ; USAGE ; exit 1;
     fi
 
-if [ -z $1 ] || [ -z $2 ]
-then
-    echo "ERROR: Both -d and -a options are mandatory" ; USAGE ; exit 1;
+# if [ -z $1 ] || [ -z $2 ]
+# then
+#     echo "ERROR: Both -d and -a options are mandatory" ; USAGE ; exit 1;
     
-fi
+# fi
 
-if [ $2 == "archive" ] || [ -z $destination_dir ]
-    then
-        echo "If archive action is selected, -d destination directory is mandatory" ; USAGE ; exit 1;       
-    fi
+# if [ $2 == "archive" ] || [ -z $destination_dir ]
+#     then
+#         echo "If archive action is selected, -d destination directory is mandatory" ; USAGE ; exit 1;       
+#     fi
 
-if [ $2 == "delete" ]
-then
-    echo "Deleting the logs:: $(rm -rf $source_dir | grep -name "*.log")" USAGE ; exit 1;
-fi
+# if [ $2 == "delete" ]
+# then
+#     echo "Deleting the logs:: $(rm -rf $source_dir | grep -name "*.log")" USAGE ; exit 1;
+# fi
 
 # if [ -z $destination_dir ] || [ -z  ]
