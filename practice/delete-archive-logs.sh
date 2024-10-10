@@ -55,7 +55,11 @@ if [ ! -d "$source_dir" ]
         echo "Source directory does not exist" ; USAGE ; exit 1;
     else
         echo "Source directory exist"
-    fi
+        if [ $action == "archive" ] || [ -z $destination_dir ]
+            then
+                echo "If archive action is selected, -d destination directory is mandatory" ; USAGE ; exit 1;       
+        fi
+fi
 
 # if [ -z $source_dir ] && [ -z $action ]
 # then
@@ -66,7 +70,7 @@ if [ ! -d "$source_dir" ]
 if [ $action == "archive" ] || [ -z $destination_dir ]
     then
         echo "If archive action is selected, -d destination directory is mandatory" ; USAGE ; exit 1;       
-    fi
+fi
 
 # if [ $2 == "delete" ]
 # then
