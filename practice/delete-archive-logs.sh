@@ -57,11 +57,11 @@ if [ ! -d "$source_dir" ]
         echo "Source directory exist"
     fi
 
-# if [ -z $1 ] || [ -z $2 ]
-# then
-#     echo "ERROR: Both -d and -a options are mandatory" ; USAGE ; exit 1;
+if [ -z $1source_dir ] || [ -z $action ]
+then
+    echo "ERROR: Both -d and -a options are mandatory" ; USAGE ; exit 1;
     
-# fi
+fi
 
 # if [ $2 == "archive" ] || [ -z $destination_dir ]
 #     then
