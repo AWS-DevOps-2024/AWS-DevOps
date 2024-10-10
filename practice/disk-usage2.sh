@@ -2,7 +2,7 @@
 
 #Find out the current disk usage and send an email if the usage is more than 2%
 
-disk_usage="$(df -hT | -vE 'tmp|File')"
+disk_usage="$(df -hT | grep -vE 'tmp|File')"
 threshold=2
 
 while IFS= read -r line
