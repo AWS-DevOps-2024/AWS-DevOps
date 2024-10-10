@@ -82,8 +82,7 @@ fi
 if [ "$action" == "delete" ]
 then
     echo "Deleting logs:: $(rm -rf find $source_dir -type f -name "*.log")
-else
-    echo "Archiving logs $( )"
+fi
 
     
 
