@@ -50,7 +50,7 @@ while getopts ":s:a:d:t:m:h" opt; do
       esac
     done
 
-if [ ! -d "$1" ]
+if [ ! -d "$source_dir" ]
     then
         echo "Source directory does not exist" ; USAGE ; exit 1;
     else
