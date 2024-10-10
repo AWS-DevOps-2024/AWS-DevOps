@@ -79,11 +79,11 @@ fi
 
 #################################
 
-# if [ $action == "delete" ]
-# then
-#     echo "Deleting logs $(rm -rf $source_dir | grep "*.log" )"
-# else
-#     echo "Archiving logs $( )"
+if [ "$action" == "delete" ]
+then
+    echo "Deleting logs:: $(rm -rf $source_dir | grep "*.log" )"
+else
+    echo "Archiving logs $( )"
 
     
 
