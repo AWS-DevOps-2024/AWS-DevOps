@@ -52,7 +52,7 @@ while getopts ":s:a:d:t:m:h" opt; do
 
 if [ ! -d $1  ]
     then
-        echo "Destination directory does not exist" ; USAGE ; exit 1;
+        echo "Source directory does not exist" ; USAGE ; exit 1;
     fi
 
 if [ -z $1 ] || [ -z $2 ]
