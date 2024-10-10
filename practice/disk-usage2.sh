@@ -11,8 +11,10 @@ do
     partition=$(echo $line | awk '{print $1F}') # It will print the partition name
     if [ $usage -ge $threshold ]
     then
-        message+="High Disk Usage is on $partition:: $usage% \n"
+        message+="High Disk Usage is on $partition:: $usage% <br>"
     fi
 done <<< $disk_usage
 
 echo -e "$message"
+
+sh mail.sh "DevOps Team" "High Disk Usage" "$message" "cloudtechprem@gmail.com" "SYSTEM | High Disk Usgae"
