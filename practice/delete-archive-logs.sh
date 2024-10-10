@@ -54,14 +54,14 @@ while getopts ":s:a:d:t:m:h" opt; do
 
 if [ ! -d $source_dir ]
 then
-    echo "Source directory $source_dir does not exist" ; USAGE; exit 1 ;;
+    echo "Source directory $source_dir does not exist" ; USAGE; exit 1;;
 fi
 
 # find if action is provided or not
 
 if [ -z $action ]
 then
-    echo "-a is mandatory option" ; USAGE; exit 1 ;;
+    echo "-a is mandatory option" ; USAGE; exit 1;;
 fi
 
 # FInd if user provided the destination or not when action = archive 
