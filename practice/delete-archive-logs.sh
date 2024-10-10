@@ -94,6 +94,6 @@ else
     do
         echo "Archiving the following Files:: $line"
         zip -r "$destination_dir/archive.zip"
-        rm -rf $line
+        # rm -rf $line
     done <<< $FILES_TO_ARCHIVE
 fi
