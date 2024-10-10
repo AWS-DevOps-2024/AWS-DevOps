@@ -70,7 +70,7 @@ fi
 
 # FInd if user provided the destination or not when action = archive 
 
-if [ $action == "archive" ] && [ ! -d $destination_dir ]
+if [ "$action" == "archive" ] && [ ! -d "$destination_dir" ]
 then
     echo "ERROR: -d destination directory is mandatory when -a is archive" 
     USAGE 
