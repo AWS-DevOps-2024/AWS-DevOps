@@ -86,38 +86,38 @@ if [ "$action" != "archive" ] || [ "$action" != "delete" ];
         echo -e "$R ERROR:: You need to select either archive or delete option only$N"
 fi
 
-# if [ -z $action ] 
-#     then
-#         echo -e "$RAction$N is mandatory"
-#         exit 1
-# fi
+if [ -z $action ] 
+    then
+        echo -e "$RAction$N is mandatory"
+        exit 1
+fi
 
-# if [ "$action" == "archive" ] 
-# then
-#     echo "Please provide the destination"
-#     read destination_dir
-#     if [ ! -d $destination_dir ]
-#     then
-#         echo -e "$RDestination$N directory does not exist"
-#         exit 1
-#     else
-#         files_to_archive=$(find $source_dir -type f -name "*.log")
-#         while IFS= read -r line
-#         do
-#             echo -e "Archiving files:: $G$line$N"
-#             zip -r "$destination_dir/zip-files.zip" "$line"
-#             VALIDATE $? 
-#         done <<< $files_to_archive
-#     fi
-# fi
+if [ "$action" == "archive" ] 
+then
+    echo "Please provide the destination"
+    read destination_dir
+    if [ ! -d $destination_dir ]
+    then
+        echo -e "$RDestination$N directory does not exist"
+        exit 1
+    else
+        files_to_archive=$(find $source_dir -type f -name "*.log")
+        while IFS= read -r line
+        do
+            echo -e "Archiving files:: $G$line$N"
+            zip -r "$destination_dir/zip-files.zip" "$line"
+            VALIDATE $? 
+        done <<< $files_to_archive
+    fi
+fi
 
-# if [ "$action" == "delete" ] 
-# then
-#     files_to_delete=$(find $source_dir -type f -name "*.log")
-#     while IFS= read -r line
-#     do
-#         echo "Deleting the files $line"
-#         rm -rf $line
-#     done <<< $files_to_delete
-# fi
+if [ "$action" == "delete" ] 
+then
+    files_to_delete=$(find $source_dir -type f -name "*.log")
+    while IFS= read -r line
+    do
+        echo "Deleting the files $line"
+        rm -rf $line
+    done <<< $files_to_delete
+fi
 
