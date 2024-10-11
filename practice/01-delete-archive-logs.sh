@@ -75,7 +75,7 @@ if [ ! -d $source_dir ]
         echo -e "Source directory $R$source_dir$N does not exist" 
         exit 1
     else
-        echo "Source directory $G$source_dir$N exist"
+        echo -e "Source directory $G$source_dir$N exist"
 fi
 
 # check if action is provided or not
