@@ -83,7 +83,7 @@ read action
 
 if [ "$action" != "archive"] || [ "$action" != "delete" ]
     then
-        echo -e $R ERROR:: "You need to select either archive or delete option only$N"
+        echo -e "$R ERROR:: "You need to select either archive or delete option only$N"
 fi
 
 if [ -z $action ] 
