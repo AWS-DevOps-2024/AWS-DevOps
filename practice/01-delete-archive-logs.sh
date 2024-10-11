@@ -22,7 +22,7 @@
 # User has given all required input or not
 # Directories are exist or not
 
-source_dir=""
+# source_dir=""
 action=""
 destination_dir=""
 time=""
