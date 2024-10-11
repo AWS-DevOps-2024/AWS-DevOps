@@ -52,7 +52,7 @@ while getopts ":s:a:d:t:m:h" opt; do
       esac
     done
 
-echo "Please source directory"
+echo "Please enter source directory"
 read source_dir
 if [ ! -d $source_dir ]
     then
