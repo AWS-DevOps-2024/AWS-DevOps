@@ -44,6 +44,17 @@ USAGE(){
     echo " -h,  --Display help and exit"
 }
 
+VALIDATE(){
+    if [ $1 -ne "0" ]
+    then
+        echo -e "Archiving is $R Failed$N"
+        exit 1
+    else
+        echo -e "$G Files are successfully archived$N"
+    fi
+}
+
+
 while getopts ":s:a:d:t:m:h" opt; do
       case $opt in
         s ) source_dir="$OPTARG";;
@@ -62,7 +73,6 @@ read source_dir
 if [ ! -d $source_dir ]
     then
         echo -e "Source directory $R$source_dir$N does not exist" 
-        USAGE 
         exit 1
     else
         echo "Source directory $G$source_dir$N exist"
@@ -74,7 +84,8 @@ read action
 
 if [ -z $action ] 
 then
-    echo "Action is mandatory"
+    echo -e "$RAction$N is mandatory"
+    exit 1
 fi
 
 if [ "$action" == "archive" ] 
@@ -83,13 +94,15 @@ then
     read destination_dir
     if [ ! -d $destination_dir ]
     then
-        echo "Destination directory does not exist"
+        echo -e "$RDestination$N directory does not exist"
+        exit 1
     else
         files_to_archive=$(find $source_dir -type f -name "*.log")
         while IFS= read -r line
         do
-            echo "Archiving files:: $line"
+            echo -e "Archiving files:: $G$line$N"
             zip -r "$destination_dir/zip-files.zip" "$line"
+            VALIDATE $? 
         done <<< $files_to_archive
     fi
 else
