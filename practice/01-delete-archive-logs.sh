@@ -36,8 +36,8 @@ N="[\e[0m"
 USAGE(){
     echo "USAGE:: $(basename $0) -s <source-directory> -a <action> -d <destination-directory> -t <retention-time> -m <memory> "
     echo "OPTIONS"
-    echo " -s,  --Source Directory (mandatory)"
-    echo " -a,  --Action (Delete or Archive)"
+    echo " Source Directory (mandatory)"
+    echo " Action (Delete or Archive)"
     echo " -d,  --Destination Directory (If You select Archive as the action then need to provide the destination directory otherwise it is Optional)"
     echo " -t,  --Retention time in days (Optional)"
     echo " -m,  --Memory (Optional)"
@@ -61,7 +61,7 @@ echo "Please enter source directory"
 read source_dir
 if [ ! -d $source_dir ]
     then
-        echo -e "Source directory $R$source_dir$N does not exist"
+        echo -e "Source directory $R$source_dir$N does not exist"; USAGE; exit 1;;
     else
         echo "Source directory $G$source_dir$N exist"
 fi
