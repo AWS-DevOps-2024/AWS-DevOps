@@ -72,8 +72,7 @@ echo "Please enter source directory"
 read source_dir
 if [ ! -d $source_dir ]
     then
-        echo -e "Source directory $R$source_dir$N does not exist" 
-        exit 1
+        echo -e "Source directory $R$source_dir$N does not exist, Please enter correct source directory" 
     else
         echo -e "Source directory $G$source_dir$N exist"
 fi
