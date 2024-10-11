@@ -69,7 +69,7 @@ while getopts ":s:a:d:t:m:h" opt; do
       esac
     done
 
-echo "Please enter source directory"
+echo "PLEASE ENTER THE SOURCE DIRECTORY::"
 read source_dir
 if [ ! -d $source_dir ]
     then
@@ -79,7 +79,7 @@ if [ ! -d $source_dir ]
 fi
 
 # check if action is provided or not
-echo "Please specify the action: delete or archive ?"
+echo "PLEASE SPECIFY THE ACTION: delete or archive ?"
 read action
 
 if [[ "$action" != "delete" && "$action" != "archive" ]] || [ -z $action ];
@@ -89,7 +89,7 @@ fi
 
 if [ "$action" == "archive" ] 
 then
-    echo "Please provide the destination"
+    echo "PLEASE ENTER THE SOURCE DIRECTORY::"
     read destination_dir
     if [ ! -d $destination_dir ]
     then
