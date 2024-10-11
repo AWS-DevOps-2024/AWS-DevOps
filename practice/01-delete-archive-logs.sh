@@ -69,8 +69,8 @@ while getopts ":s:a:d:t:m:h" opt; do
       esac
     done
 
-echo "PLEASE ENTER THE SOURCE DIRECTORY::"
-read source_dir
+
+read -p "Enter the Source Directory ::" source_dir
 if [ ! -d $source_dir ]
     then
         echo -e "Source directory $R$source_dir$N does not exist, Please enter correct source directory" 
@@ -79,8 +79,7 @@ if [ ! -d $source_dir ]
 fi
 
 # check if action is provided or not
-echo "PLEASE SPECIFY THE ACTION: delete or archive ?"
-read action
+read -p "Please specify the action (delete/archive) ::" action
 
 if [[ "$action" != "delete" && "$action" != "archive" ]] || [ -z $action ];
     then
@@ -89,8 +88,7 @@ fi
 
 if [ "$action" == "archive" ] 
 then
-    echo "PLEASE ENTER THE DESTINATION DIRECTORY::"
-    read destination_dir
+    read -p "Enter Destination Directory ::" destination_dir
     if [ ! -d $destination_dir ]
     then
         echo -e "$RDestination$N directory does not exist"
