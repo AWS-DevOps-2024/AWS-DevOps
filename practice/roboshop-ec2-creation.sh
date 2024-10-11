@@ -3,7 +3,7 @@
 instances=("mongodb" "web" "mysql" )
 
 
-for i in "$instances[@]"
+for i in "${instances[@]}"
 do
     if [ $i == "mongodb" ] || [ $i == "mysql" ]
     then 
