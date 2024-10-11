@@ -83,8 +83,8 @@ read action
 
 if [ "$action" != "archive" ] || [ "$action" != "delete" ] || [ -z $action ];
     then
-        echo -e "$R ERROR::$N $R action $N is mandatory, You need to select either $G archive $N or $G delete $N option only$N"
-
+        echo -e "$R ERROR::$N $G action $N is mandatory, You need to select either $G archive $N or $G delete $N option only$N"
+    else
         if [ "$action" == "archive" ] 
         then
             echo "Please provide the destination"
