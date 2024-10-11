@@ -29,9 +29,9 @@
 # memory=""
 
 
-R="[\e[31m"
-G="[\e[32m"
-N="[\e[0m"
+R="\e[31m"
+G="\e[32m"
+N="\e[0m"
 
 USAGE(){
     echo "USAGE:: $(basename $0) -s <source-directory> -a <action> -d <destination-directory> -t <retention-time> -m <memory> "
