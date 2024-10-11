@@ -28,6 +28,11 @@
 # time=""
 # memory=""
 
+
+R="[\e[31m"
+G="[\e[32m"
+N="[\e[0m"
+
 USAGE(){
     echo "USAGE:: $(basename $0) -s <source-directory> -a <action> -d <destination-directory> -t <retention-time> -m <memory> "
     echo "OPTIONS"
@@ -53,12 +58,12 @@ while getopts ":s:a:d:t:m:h" opt; do
     done
 
 echo "Please enter source directory"
-read source_dir
+read $G source_dir$N
 if [ ! -d $source_dir ]
     then
-        echo "Source directory does not exist"
+        echo -e "Source directory $R$source_dir$N does not exist"
     else
-        echo "Source directory $source_dir exist"
+        echo "Source directory $G$source_dir$N exist"
 fi
 
 # check if action is provided or not
