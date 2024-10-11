@@ -87,6 +87,10 @@ then
     echo -e "$RAction$N is mandatory"
     exit 1
 fi
+if [ "$action" -ne "archive"] || [ "$action" -ne "delete" ]
+then
+    echo -e $R ERROR:: "You need to select either archive or delete option only$N"
+fi
 
 if [ "$action" == "archive" ] 
 then
