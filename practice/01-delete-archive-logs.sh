@@ -85,27 +85,27 @@ read action
 if [ "$action" != "archive" ] || [ "$action" != "delete" ] || [ -z $action ];
     then
         echo -e "$R ERROR::$N $G action $N is mandatory, You need to select either $G archive $N or $G delete $N option only$N"
+fi
+
+echo "Please specify the action: delete or archive ?"
+read action
+if [ "$action" == "archive" ] 
+then
+    echo "Please provide the destination"
+    read destination_dir
+    if [ ! -d $destination_dir ]
+    then
+        echo -e "$RDestination$N directory does not exist"
+        exit 1
     else
-        echo "Please specify the action: delete or archive ?"
-        read action
-        if [ "$1" == "archive" ] 
-        then
-            echo "Please provide the destination"
-            read destination_dir
-            if [ ! -d $destination_dir ]
-            then
-                echo -e "$RDestination$N directory does not exist"
-                exit 1
-            else
-                files_to_archive=$(find $source_dir -type f -name "*.log")
-                while IFS= read -r line
-                do
-                    echo -e "Archiving files:: $G$line$N"
-                    zip -r "$destination_dir/zip-files.zip" "$line"
-                    VALIDATE $? 
-                done <<< $files_to_archive
-            fi
-        fi
+    files_to_archive=$(find $source_dir -type f -name "*.log")
+    while IFS= read -r line
+    do
+        echo -e "Archiving files:: $G$line$N"
+        zip -r "$destination_dir/zip-files.zip" "$line"
+        VALIDATE $? 
+    done <<< $files_to_archive
+   fi
 fi
 
 
