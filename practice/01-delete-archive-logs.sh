@@ -48,10 +48,10 @@ USAGE(){
 VALIDATE(){
     if [ $1 -ne "0" ]
     then
-        echo -e "Archiving is $R Failed$N"
+        echo -e "$R Failed$N"
         exit 1
     else
-        echo -e "$G Files are successfully archived$N"
+        echo -e "$2 $G Success$N"
     fi
 }
 
@@ -101,7 +101,7 @@ then
     do
         echo -e "Archiving files:: $G$line$N"
         zip -r "$destination_dir/zip-files.zip" "$line"
-        VALIDATE $? 
+        VALIDATE $? "Archiving files is..."
     done <<< $files_to_archive
    fi
 fi
@@ -111,8 +111,10 @@ then
     files_to_delete=$(find $source_dir -type f -name "*.log")
     while IFS= read -r line
     do
-        echo "Deleting the files $line"
+        echo -e "Deleting the file:: $R$line$N"
         rm -rf $line
+        VALIDATE $? "Deletion of files is..."
+
     done <<< $files_to_delete
 fi
 
