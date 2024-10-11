@@ -111,7 +111,10 @@ then
             VALIDATE $? 
         done <<< $files_to_archive
     fi
-else
+fi
+
+if [ "$action" == "delete" ] 
+then
     files_to_delete=$(find $source_dir -type f -name "*.log")
     while IFS= read -r line
     do
