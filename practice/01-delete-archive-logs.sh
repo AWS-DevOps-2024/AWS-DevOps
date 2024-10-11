@@ -106,14 +106,13 @@ then
    fi
 fi
 
-
-# if [ "$action" == "delete" ] 
-# then
-#     files_to_delete=$(find $source_dir -type f -name "*.log")
-#     while IFS= read -r line
-#     do
-#         echo "Deleting the files $line"
-#         rm -rf $line
-#     done <<< $files_to_delete
-# fi
+if [ "$action" == "delete" ] 
+then
+    files_to_delete=$(find $source_dir -type f -name "*.log")
+    while IFS= read -r line
+    do
+        echo "Deleting the files $line"
+        rm -rf $line
+    done <<< $files_to_delete
+fi
 
