@@ -32,6 +32,7 @@
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
+action=""
 
 USAGE(){
     echo "USAGE:: $(basename $0) -s <source-directory> -a <action> -d <destination-directory> -t <retention-time> -m <memory> "
@@ -85,7 +86,7 @@ if [ "$action" != "archive" ] || [ "$action" != "delete" ] || [ -z $action ];
     then
         echo -e "$R ERROR::$N $G action $N is mandatory, You need to select either $G archive $N or $G delete $N option only$N"
     else
-        if [ "$action" == "archive" ] 
+        if [ "$1" == "archive" ] 
         then
             echo "Please provide the destination"
             read destination_dir
