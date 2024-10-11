@@ -81,7 +81,7 @@ fi
 echo "Please specify action: delete or archive ?"
 read action
 
-if [ "$action" != "archive"] || [ "$action" != "delete" ];
+if [ "$action" != "archive" ] || [ "$action" != "delete" ];
     then
         echo -e "$R ERROR:: You need to select either archive or delete option only$N"
 fi
