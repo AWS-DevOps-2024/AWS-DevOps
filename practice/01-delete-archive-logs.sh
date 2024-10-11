@@ -23,10 +23,10 @@
 # Directories are exist or not
 
 # source_dir=""
-action=""
-destination_dir=""
-time=""
-memory=""
+# action=""
+# destination_dir=""
+# time=""
+# memory=""
 
 USAGE(){
     echo "USAGE:: $(basename $0) -s <source-directory> -a <action> -d <destination-directory> -t <retention-time> -m <memory> "
@@ -59,5 +59,38 @@ if [ ! -d $source_dir ]
         echo "Source directory does not exist"
     else
         echo "Source directory $source_dir exist"
+fi
+
+# check if action is provided or not
+echo "Please specify action: delete or archive ?"
+read action
+
+if [ -z $action ] 
+then
+    echo "Action is mandatory"
+fi
+
+if [ "$action" == "archive" ] 
+then
+    echo "Please provide the destination"
+    read destination_dir
+    if [ ! -d $destination_dir ]
+    then
+        echo "Destination directory does not exist"
+    else
+        while IFS= read -r line
+        do
+            files_to_archive=$(find $source_dir -type f -name "*.log")
+            echo "Archiving files:: $line"
+            zip -r "$destination_dir/zip-files.zip" "$line"
+        done <<< $files_to_archive
+    fi
+else
+    while IFS= read -r line
+    do
+        files_to_delete=$(find $source_dir -type f -name "*.log")
+        echo "Deleting the files $line"
+        rm -rf $line
+    done <<< $files_to_delete
 fi
 
