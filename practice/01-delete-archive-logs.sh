@@ -78,17 +78,17 @@ then
     then
         echo "Destination directory does not exist"
     else
+        files_to_archive=$(find $source_dir -type f -name "*.log")
         while IFS= read -r line
         do
-            files_to_archive=$(find $source_dir -type f -name "*.log")
             echo "Archiving files:: $line"
             zip -r "$destination_dir/zip-files.zip" "$line"
         done <<< $files_to_archive
     fi
 else
+    files_to_delete=$(find $source_dir -type f -name "*.log")
     while IFS= read -r line
     do
-        files_to_delete=$(find $source_dir -type f -name "*.log")
         echo "Deleting the files $line"
         rm -rf $line
     done <<< $files_to_delete
