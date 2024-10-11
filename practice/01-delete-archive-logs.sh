@@ -89,7 +89,7 @@ fi
 
 if [ "$action" == "archive" ] 
 then
-    echo "PLEASE ENTER THE SOURCE DIRECTORY::"
+    echo "PLEASE ENTER THE DESTINATION DIRECTORY::"
     read destination_dir
     if [ ! -d $destination_dir ]
     then
