@@ -58,7 +58,7 @@ while getopts ":s:a:d:t:m:h" opt; do
     done
 
 echo "Please enter source directory"
-read $G source_dir$N
+read -e $G source_dir$N
 if [ ! -d $source_dir ]
     then
         echo -e "Source directory $R$source_dir$N does not exist"
