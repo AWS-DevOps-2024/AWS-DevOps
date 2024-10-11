@@ -48,10 +48,10 @@ USAGE(){
 VALIDATE(){
     if [ $1 -ne "0" ]
     then
-        echo -e "$R Failed$N"
+        echo -e "$2 is...$R Failed$N"
         exit 1
     else
-        echo -e "$2 $G Success$N"
+        echo -e "$2 is...$G Success$N"
     fi
 }
 
@@ -74,8 +74,6 @@ read -p "Enter the Source Directory ::" source_dir
 if [ ! -d $source_dir ]
     then
         echo -e "Source directory $R$source_dir$N does not exist, Please enter correct source directory" 
-    else
-        echo -e "Source directory $G$source_dir$N exist"
 fi
 
 # check if action is provided or not
@@ -99,7 +97,7 @@ then
     do
         echo -e "Archiving files:: $G$line$N"
         zip -r "$destination_dir/zip-files.zip" "$line"
-        VALIDATE $? "Archiving files is..."
+        VALIDATE $? "Archive"
     done <<< $files_to_archive
    fi
 fi
@@ -111,7 +109,7 @@ then
     do
         echo -e "Deleting the file:: $R$line$N"
         rm -rf $line
-        VALIDATE $? "Deletion of files is..."
+        VALIDATE $? "Deletion"
 
     done <<< $files_to_delete
 fi
