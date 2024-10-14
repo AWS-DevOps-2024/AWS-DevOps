@@ -16,26 +16,26 @@ do
         instance_type="t2.micro"
     fi
     IP_ADDRESS=$(aws ec2 run-instances --image-id ami-0b4f379183e5706b9 --instance-type $instance_type --security-group-ids sg-04d3cc3675c0c646f --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].PrivateIpAddress' --output text)
-    echo -e "$i:: $G$instance_type :: $IP_ADDRESS$N"
+    echo -e "$i:: $$G$IP_ADDRESS$N"
 done
 
 
 # aws ec2 run-instances --image-id ami-0b4f379183e5706b9 --instance-type t2.micro --security-group-ids sg-04d3cc3675c0c646f --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=Web}]'
 
-# aws route53 change-resource-record-sets \
-#   --hosted-zone-id $zoneid \
-#   --change-batch '
-#   {
-#     "Comment": "Creating a record set for cognito endpoint"
-#     ,"Changes": [{
-#       "Action"              : "UPSERT"
-#       ,"ResourceRecordSet"  : {
-#         "Name"              : "'$i'.learndevops.space"
-#         ,"Type"             : "A"
-#         ,"TTL"              : 1
-#         ,"ResourceRecords"  : [{
-#             "Value"         : "'$i'"
-#         }]
-#       }
-#     }]
-#   }'
+aws route53 change-resource-record-sets \
+  --hosted-zone-id $zoneid \
+  --change-batch '
+  {
+    "Comment": "Creating a record set for cognito endpoint"
+    ,"Changes": [{
+      "Action"              : "UPSERT"
+      ,"ResourceRecordSet"  : {
+        "Name"              : "'$i'.learndevops.space"
+        ,"Type"             : "A"
+        ,"TTL"              : 1
+        ,"ResourceRecords"  : [{
+            "Value"         : "'$IP_ADDRESS'"
+        }]
+      }
+    }]
+  }'
