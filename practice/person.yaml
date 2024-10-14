@@ -1,0 +1,20 @@
+- name: Prem
+  dob: "2024-10-14"
+  address:
+    address-line1: Vivek Street
+    address-line2: Balanagar
+    city: Hyderabad
+  email: premsagar@gmail.com
+
+- name: Anil
+  dob: "2024-10-14"
+  address: 
+    - name: home
+      address-line1: Vivek Street
+      address-line2: Balanagar
+      city: Hyderabad
+    - name: office
+      address-line1: Kothapet
+      address-line2: Khajipet
+      city: Kadapa
+  email: prem@gmail.com
