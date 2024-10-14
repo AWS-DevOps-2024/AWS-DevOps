@@ -1,7 +1,7 @@
 
 Deduplication: 
 ---------------
-It will avoid writing the same data.
+It will avoid writing the same data on the backup disk.
 
 Application Size:
 ------------------
