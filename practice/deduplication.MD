@@ -28,6 +28,8 @@ Application size : 4 GB
 
 Data written on the backup disk: 4 GB (A+B+C+D)
 
+Total data written on the disk: 4 GB
+
 Deduplication Savings: 0%
 
 Baseline Data: A+B+C+D (4GB)
@@ -41,6 +43,9 @@ Application size :  5 GB
 
 Data written on the backup disk: 1 GB (E), because Incremental job is avoiding the ABCD blocks because they are already written by Full backup job.
 
+Total data written on the disk: 5 GB
+
 Deduplication Savings: 75%
 
 Baseline Data: A+B+C+D+E (5GB)
+
