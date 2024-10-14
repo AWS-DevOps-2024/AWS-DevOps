@@ -26,7 +26,7 @@ Full Backup:
 ----------------
 Application size : 4 GB
 
-Data written on the backup disk: 4 GB (A+B+C+D)
+Data written on the backup disk because of Full backup job: 4 GB (A+B+C+D)
 
 Total data written on the disk: 4 GB
 
@@ -41,7 +41,7 @@ Incremental Backup:
 --------------------
 Application size :  5 GB
 
-Data written on the backup disk: 1 GB (E), because Incremental job is avoiding the ABCD blocks because they are already written by Full backup job.
+Data written on the backup disk because of Incremental Job: 1 GB (E), because Incremental job is avoiding the ABCD blocks because they are already written by Full backup job.
 
 Total data written on the disk: 5 GB
 
