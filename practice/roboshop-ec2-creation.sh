@@ -16,7 +16,7 @@ do
         instance_type="t2.micro"
     fi
     IP_ADDRESS=$(aws ec2 run-instances --image-id ami-0b4f379183e5706b9 --instance-type $instance_type --security-group-ids sg-04d3cc3675c0c646f --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$i}]" --query 'Instances[0].PrivateIpAddress' --output text)
-    echo -e "$G$i:: $IP_ADDRESS$N"
+    echo -e "$i:: $G$instance_type :: $IP_ADDRESS$N"
 done
 
 
