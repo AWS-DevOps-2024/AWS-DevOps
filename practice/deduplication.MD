@@ -14,7 +14,10 @@ Example:
 
 FULL BACKUP:
 ----------------
-Application size : 4 GB.
-Data written on the backup disk: 4 GB (A+B+C+D).
-Deduplication Savings: 0%.
-Baseline Data: A+B+C+D (4GB).
+Application size : 4 GB
+
+Data written on the backup disk: 4 GB (A+B+C+D)
+
+Deduplication Savings: 0%
+
+Baseline Data: A+B+C+D (4GB)
